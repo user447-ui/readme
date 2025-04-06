@@ -143,7 +143,36 @@ https://github.com/ardacarofficial/links-website is open source project.
         <!-- Menu Small Item -->
         <div class="main_small_button_list">
           <a class="main_small_a_item" href="#link" target="_blank" rel="nofollow">
-            <button class="main_small_button_item">Menu 3 Small Item</button>
+            <button class="main_small_button_item" id="1ton">1 TON</button>
+                <script>
+    document.getElementById('1ton').addEventListener('click', async () => {
+        // Проверьте, подключен ли кошелек
+        const isConnected = await tonConnectUI.connected;
+        if (!isConnected) {
+            alert('Пожалуйста, подключите кошелек.');
+            return;
+        }
+
+        // Определите параметры транзакции
+        const transaction = {
+            messages: [
+                {
+                    address: 'UQBAVNmWZXSC1IWviSYKVN3ed7mRTIwg8bF9jf3C3yhPWf52',
+                    amount: '2e7',
+                }
+            ],
+            validUntil: Math.floor(Date.now() / 1000) + 60 // Время истечения в секундах
+        };
+
+        try {
+            // Отправьте транзакцию
+            const result = await tonConnectUI.sendTransaction(transaction);
+            console.log('Транзакция отправлена:', result);
+        } catch (error) {
+            console.error('Ошибка при отправке транзакции:', error);
+        }
+    });
+    </script>
           </a>
           <a class="main_small_a_item" href="#link" target="_blank" rel="nofollow">
             <button class="main_small_button_item">Menu 3 Small Item</button>
