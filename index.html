@@ -13,6 +13,7 @@ https://github.com/ardacarofficial/links-website is open source project.
     <title>User447-ui</title>
     <meta name="description" content="Your Description">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&amp;display=swap">
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
@@ -131,12 +132,13 @@ https://github.com/ardacarofficial/links-website is open source project.
         <!-- Menu Text Item -->
         <!-- Menu Small Item -->
         <div class="main_small_button_list">
-          <a class="main_small_a_item" href="#link" target="_blank" rel="nofollow">
-            <button class="main_small_button_item">Menu 3 Small Item</button>
-          </a>
-          <a class="main_small_a_item" href="#link" target="_blank" rel="nofollow">
-            <button class="main_small_button_item">Menu 3 Small Item</button>
-          </a>
+          <div id="ton-connect"></div>
+<script>
+    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+        manifestUrl: 'https://user447-ui.github.io/readme/tonconnect-manifest.json',
+        buttonRootId: 'ton-connect'
+    });
+</script>
         </div>
         <!-- Menu Small Item -->
         <div class="main_small_button_list">
